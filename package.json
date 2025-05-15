@@ -76,5 +76,7 @@
     "android": {
       "src": "android"
     }
-  }
+  },
+  "type": "commonjs",
+  "homepage": "https://github.com/AREA16-DEV/Kiosk-Ionic#readme"
 }

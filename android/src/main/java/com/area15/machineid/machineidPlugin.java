@@ -1,22 +1,21 @@
-package com.area15.machineid;
+package com.yourcompany.machineid;
 
-import com.getcapacitor.JSObject;
+import android.provider.Settings;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
+import com.getcapacitor.JSObject;
 
-@CapacitorPlugin(name = "machineid")
+@CapacitorPlugin(name = "MachineId")
 public class machineidPlugin extends Plugin {
 
-    private machineid implementation = new machineid();
-
     @PluginMethod
-    public void echo(PluginCall call) {
-        String value = call.getString("value");
+    public void getMachineId(PluginCall call) {
+        String androidId = Settings.Secure.getString(getContext().getContentResolver(), Settings.Secure.ANDROID_ID);
 
-        JSObject ret = new JSObject();
-        ret.put("value", implementation.echo(value));
-        call.resolve(ret);
+        JSObject result = new JSObject();
+        result.put("id", androidId);
+        call.resolve(result);
     }
 }

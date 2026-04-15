@@ -1,4 +1,4 @@
-package com.yourcompany.machineid;
+package com.area15.machineid;
 
 import android.provider.Settings;
 import com.getcapacitor.Plugin;
